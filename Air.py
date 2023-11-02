@@ -1,0 +1,103 @@
+# Airkeys Gui
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class keys(QtWidgets.QMainWindow):
+
+    def __init__(self):
+        super(keys, self).__init__()
+        self.setup_ui(self)
+
+    def setup_ui(self, MainWindow):
+
+        MainWindow.setObjectName("AirKeys")
+        
+        MainWindow.resize(1900, 1480)
+        MainWindow.setStyleSheet("background-color: #F0F8FF;")
+        MainWindow.setTabletTracking(False)
+        MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
+        self.textBrowser.setGeometry(QtCore.QRect(1600, 0, 200, 31))
+        self.textBrowser.setObjectName("textBrowser")
+        # self.verticalScrollBar = QtWidgets.QScrollBar(self.centralwidget)
+        # self.verticalScrollBar.setGeometry(QtCore.QRect(620, -1, 20, 451))
+        # self.verticalScrollBar.setOrientation(QtCore.Qt.Vertical)
+        # self.verticalScrollBar.setObjectName("verticalScrollBar")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 18))
+        self.menubar.setObjectName("menubar")
+        self.menuMenu = QtWidgets.QMenu(self.menubar)
+        self.menuMenu.setObjectName("menuMenu")
+        self.menuSettings = QtWidgets.QMenu(self.menubar)
+        self.menuSettings.setObjectName("menuSettings")
+        self.menuSettings.setStyleSheet("background-color: #E74C3C;")
+        self.menuDevice = QtWidgets.QMenu(self.menuSettings)
+        self.menuDevice.setObjectName("menuDevice")
+        self.menuLayout = QtWidgets.QMenu(self.menuSettings)
+        self.menuLayout.setObjectName("menuLayout")
+        self.menuLayout.setStyleSheet("background-color: #E74C3C;")
+        self.menuCalibration_image = QtWidgets.QMenu(self.menuSettings)
+        self.menuCalibration_image.setObjectName("menuCalibration_image")
+        self.menuGuide = QtWidgets.QMenu(self.menubar)
+        self.menuGuide.setObjectName("menuGuide")
+        MainWindow.setMenuBar(self.menubar)
+        self.actionSelect_OS = QtWidgets.QAction(MainWindow)
+        self.actionSelect_OS.setObjectName("actionSelect_OS")
+        self.actionSelect_Device_type = QtWidgets.QAction(MainWindow)
+        self.actionSelect_Device_type.setObjectName("actionSelect_Device_type")
+        self.actionSet_Connection_Type = QtWidgets.QAction(MainWindow)
+        self.actionSet_Connection_Type.setObjectName("actionSet_Connection_Type")
+        self.actionAdd_New_Layout_Image = QtWidgets.QAction(MainWindow)
+        self.actionAdd_New_Layout_Image.setObjectName("actionAdd_New_Layout_Image")
+        self.actionSelect_Layout_Template = QtWidgets.QAction(MainWindow)
+        self.actionSelect_Layout_Template.setObjectName("actionSelect_Layout_Template")
+        self.actionAdd_Neww_Calibration_Image = QtWidgets.QAction(MainWindow)
+        self.actionAdd_Neww_Calibration_Image.setObjectName("actionAdd_Neww_Calibration_Image")
+        self.actionLayouts = QtWidgets.QAction(MainWindow)
+        self.actionLayouts.setObjectName("actionLayouts")
+        self.menuDevice.addAction(self.actionSelect_OS)
+        self.menuDevice.addAction(self.actionSelect_Device_type)
+        self.menuDevice.addAction(self.actionSet_Connection_Type)
+        self.menuLayout.addAction(self.actionAdd_New_Layout_Image)
+        self.menuLayout.addAction(self.actionSelect_Layout_Template)
+        self.menuCalibration_image.addAction(self.actionAdd_Neww_Calibration_Image)
+        self.menuSettings.addAction(self.menuDevice.menuAction())
+        self.menuSettings.addSeparator()
+        self.menuSettings.addAction(self.menuLayout.menuAction())
+        self.menuSettings.addSeparator()
+        self.menuSettings.addAction(self.menuCalibration_image.menuAction())
+        self.menubar.addAction(self.menuMenu.menuAction())
+        self.menubar.addAction(self.menuSettings.menuAction())
+        self.menubar.addAction(self.menuGuide.menuAction())
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowIcon(QtGui.QIcon(r"C:\Users\ajabo\OneDrive\Documents\senior project\keyvir.png"))
+        MainWindow.setWindowTitle(_translate("AirKeys", "AirKeys"))
+        self.textBrowser.setHtml(_translate("AirKeys", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">SEARCH</p></body></html>"))
+        self.menuMenu.setTitle(_translate("MainWindow", "Layouts"))
+        self.menuSettings.setTitle(_translate("MainWindow", "Settings"))
+        self.menuDevice.setTitle(_translate("MainWindow", "Device"))
+        self.menuLayout.setTitle(_translate("MainWindow", "Layout"))
+        self.menuCalibration_image.setTitle(_translate("MainWindow", "Calibration image"))
+        self.menuGuide.setTitle(_translate("MainWindow", "Guide"))
+        self.actionSelect_OS.setText(_translate("MainWindow", "Select OS"))
+        self.actionSelect_Device_type.setText(_translate("MainWindow", "Select Device Type"))
+        self.actionSet_Connection_Type.setText(_translate("MainWindow", "Set Connection Type"))
+        self.actionAdd_New_Layout_Image.setText(_translate("MainWindow", "Add New Layout Image"))
+        self.actionSelect_Layout_Template.setText(_translate("MainWindow", "Select Layout Template"))
+        self.actionAdd_Neww_Calibration_Image.setText(_translate("MainWindow", "Add New Calibration Image"))
+        self.actionLayouts.setText(_translate("MainWindow", "Layouts"))
