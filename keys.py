@@ -56,7 +56,7 @@ class KeyboardUI(QMainWindow):
         # Create learn more button and adds style to button
         learn_more_button = QPushButton('Learn More', self)
         learn_more_button.setStyleSheet(
-            'padding: 15px; background-color: #2ecc71; color: white; font-size: 16px; border: none; border-radius: 5px;')
+            'padding: 15px; background-color: #2ecc71; color: white; font-size: 20px; border: none; border-radius: 5px;')
 
         layouts_layout = QHBoxLayout()
         layouts_layout.setSpacing(20)
@@ -83,7 +83,7 @@ class KeyboardUI(QMainWindow):
         content_layout.addWidget(text_label)
         content_layout.addWidget(learn_more_button)
         content_layout.addLayout(layouts_layout)
-
+        
         footer_label = QLabel('© 2023 AirKeys Keyboard', self)
 
         # center align label
