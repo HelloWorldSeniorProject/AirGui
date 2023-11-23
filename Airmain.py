@@ -1,15 +1,15 @@
-from Air import keys
-from PyQt5.QtWidgets import QApplication
+from keys import KeyboardUI # import keyboard main window
+from PyQt5.QtWidgets import QApplication 
 import sys
 
 import os
-#seems we have to set this environment variable to remove a warning
+# set environment variable to remove a warning
 os.environ["XDG_RUNTIME_DIR"] = "/tmp/runtime-runner"
 
-def airmain():
+def airuimain():
     app = QApplication(sys.argv)
-    gui = keys()
+    gui = KeyboardUI()
     gui.show()
     app.exec_()
 
-airmain()
+airuimain()
